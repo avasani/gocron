@@ -75,7 +75,7 @@ func (s *Scheduler) scheduleNextRun(j *Job) error {
 		j.lastRun = now
 	}
 
-	if j.nextRun.After(now) {
+	if j.nextRun.After(now.Add(time.Second - time.Millisecond)) {
 		return nil
 	}
 
